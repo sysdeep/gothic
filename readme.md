@@ -1,9 +1,12 @@
-Tcl/Tk Go bindings.
+# Tcl/Tk Go bindings
+
+- https://github.com/sysdeep/gothic
+- https://github.com/nsf/gothic
 
 VERSION NOTICE
 
 Recently Tcl/Tk 8.6 were released. I use them as a default, if you still have
-Tcl/Tk 8.5 use `go get -tags tcl85 github.com/nsf/gothic`.
+Tcl/Tk 8.5 use `go get -tags tcl85 github.com/sysdeep/gothic`.
 
 DESCRIPTION
 
@@ -13,7 +16,7 @@ interpreter instance without Tk. In future it's likely it will be changed.
 The API is very simple. In the package you have one type and one function:
 
 type Interpreter struct
-func NewInterpreter (init interface{}) *Interpreter
+func NewInterpreter (init interface{}) \*Interpreter
 
 In order to launch an interpreter you have to call the "NewInterpreter"
 function, it will make a new instance of a tcl/tk interpreter in a separate
@@ -21,7 +24,7 @@ goroutine, execute "init", block in Tk's main loop and then the function
 returns a pointer to the new instance of an "Interpreter".
 
 "init" could be a string with tcl commands that are executed before Tk's main
-loop, or a function with this signature: "func (*Interpreter)". This function
+loop, or a function with this signature: "func (\*Interpreter)". This function
 gets executed the same way as the string, that is - before Tk's main loop.
 
 Here are the methods of the "Interpreter":
@@ -34,7 +37,7 @@ func (*Interpreter) UploadImage(name string, img image.Image) error
 func (*Interpreter) RegisterCommand(name string, cbfunc interface{}) error
 func (*Interpreter) UnregisterCommand(name string) error
 func (*Interpreter) RegisterCommands(name string, val interface{}) error
-func (*Interpreter) UnregisterCommands(name string) error
+func (\*Interpreter) UnregisterCommands(name string) error
 
 As it was stated before, the "Interpreter" is being executed in a separate
 goroutine and each method is completely thread-safe. Also every method is

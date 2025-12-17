@@ -92,17 +92,18 @@ func NewInterpreter(init interface{}) *Interpreter {
 // errors go through ErrorFilter, just like any other tcl error.
 //
 // The syntax for formatting tags is:
-//  %{[<abbrev>[<format>]]}
+//
+//	%{[<abbrev>[<format>]]}
 //
 // Where:
 //
-//  <abbrev> could be a number of the function argument (starting from 0) or a
-//           name of the key in the provided gothic.ArgMap argument. It can
-//           also be empty, in this case it uses internal counter, takes the
-//           corresponding argument and increments that counter.
+//	<abbrev> could be a number of the function argument (starting from 0) or a
+//	         name of the key in the provided gothic.ArgMap argument. It can
+//	         also be empty, in this case it uses internal counter, takes the
+//	         corresponding argument and increments that counter.
 //
-//  <format> Is the fmt.Sprintf format specifier, passed directly to
-//           fmt.Sprintf as is (except for %q, see additional notes).
+//	<format> Is the fmt.Sprintf format specifier, passed directly to
+//	         fmt.Sprintf as is (except for %q, see additional notes).
 //
 // Additional notes:
 //
@@ -118,8 +119,8 @@ func NewInterpreter(init interface{}) *Interpreter {
 //  3. gothic.Eval("%{0%.2f} and %{%.2f}", 3.1415)
 //     "3.14 and 3.14"
 //  4. gothic.Eval("[myfunction %{arg1} %{arg2}]", gothic.ArgMap{
-//             "arg1": 5,
-//             "arg2": 10,
+//     "arg1": 5,
+//     "arg2": 10,
 //     })
 //     "[myfunction 5 10]"
 //  5. gothic.Eval("%{%q}", "[command $variable]")

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/nsf/gothic"
+import "github.com/sysdeep/gothic/gothic"
 
 const init_script = `
 	wm title . "Feet to Meters"
@@ -25,7 +25,7 @@ func main() {
 	ir.RegisterCommand("calculate", func() {
 		var f float64
 		ir.EvalAs(&f, "set feet")
-		ir.Eval("set meters %{%.3f}", f * 0.3048)
+		ir.Eval("set meters %{%.3f}", f*0.3048)
 	})
 
 	<-ir.Done

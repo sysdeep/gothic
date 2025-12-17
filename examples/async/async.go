@@ -1,7 +1,10 @@
 package main
 
-import "github.com/nsf/gothic"
-import "time"
+import (
+	"time"
+
+	"github.com/sysdeep/gothic/gothic"
+)
 
 func main() {
 	ir := gothic.NewInterpreter(`
