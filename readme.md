@@ -3,6 +3,12 @@
 - https://github.com/sysdeep/gothic
 - https://github.com/nsf/gothic
 
+## Forks
+
+- https://github.com/vpapp/gothic
+  - адаптация для windows
+  - замена хардкода компиляции на pkgconf
+
 VERSION NOTICE
 
 Recently Tcl/Tk 8.6 were released. I use them as a default, if you still have
